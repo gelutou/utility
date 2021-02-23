@@ -1,1 +1,9 @@
 - 记录多线程并发、解决方式
+- 线程的状态（Thread.State）
+1. 创建(NEW)
+2. 就绪(RUNNABLE)
+3. 阻塞(BLOCKED)
+4. 等待(WAITING)
+5. 限时等待TIMED_WAITING
+4. 运行(WAITING)
+5. 终止TERMINATED()

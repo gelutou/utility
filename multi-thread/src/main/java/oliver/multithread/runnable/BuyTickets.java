@@ -35,6 +35,7 @@ public class BuyTickets implements Runnable{
             大明买到了第15张票
             */
         //多个线程操作同一个资源，线程不安全，出现并发问题
+        //静态代理模式
         new Thread(tickets,"小明").start();
         new Thread(tickets,"大明").start();
         new Thread(tickets,"黄牛").start();

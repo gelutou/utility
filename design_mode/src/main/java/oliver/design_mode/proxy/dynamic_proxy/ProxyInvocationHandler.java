@@ -11,19 +11,26 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyInvocationHandler implements InvocationHandler {
 
-    //被代理的接口
-    private Rent rent;
+    /**
+     * <p>被代理的接口</p>
+     **/
+    private Object target;
 
-    public void setRent(Rent rent) {
-        this.rent = rent;
+    public void setTarget(Object object) {
+        this.target = object;
     }
 
     public Object getProxy(){
-        return Proxy.newProxyInstance(this.getClass().getClassLoader(), rent.getClass().getInterfaces(),this);
+        return Proxy.newProxyInstance(this.getClass().getClassLoader(), target.getClass().getInterfaces(),this);
     }
 
+    /**
+     * <p>Description: 处理代理实例，返回结果 </p>
+     * @author Oliver
+     **/
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return null;
+        //动态代理的本质就是使用反射机制实现
+        return method.invoke(target, args);
     }
 }
